@@ -44,7 +44,8 @@ app.get("/help", (req, res)=>{
     res.render("help", {
         message: "this is the help page",
         title: "Help Page",
-        name: "Darc"
+        name: "Darc",
+        credit: "created using both the Dark Sky API and the MapBox API"
     });
 });
 
@@ -81,18 +82,6 @@ app.get("/weather", (req, res)=>{
     });
 });
 
-app.get("/products", (req, res) => {
-
-    if(!req.query.search){
-        return res.send({
-            error: "You must provide a search term"
-        })
-    } 
-    console.log(req.query.search);
-    res.send({
-        products: []
-    });
-});
 
 app.get("/help/*", (req, res)=>{
     res.render("404",{
